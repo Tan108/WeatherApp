@@ -8,6 +8,8 @@ import android.view.View
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.get
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.apps10x.weatherapp.R
 import com.apps10x.weatherapp.data.model.Main
 import com.apps10x.weatherapp.databinding.ActivityMainBinding
@@ -26,25 +28,32 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         mainBinding = DataBindingUtil.setContentView(this,R.layout.activity_main)
         mainViewModel = ViewModelProvider(this)[MainViewModel::class.java]
+        mainBinding.rvForecast.addItemDecoration(
+            DividerItemDecoration(
+                this,
+                LinearLayoutManager.VERTICAL
+            )
+        )
+        mainBinding.btnRetry.setOnClickListener {
+            handleObserver()
+        }
         handleObserver()
     }
 
-    fun handleObserver(){
+    private fun handleObserver(){
         mainViewModel.getWeatherAndForecastData().observe(this){
             when(it){
                 is MainViewState.Loading -> {
-//                    binding.progress.visibility = View.VISIBLE
+                    mainBinding.llProgressLayout.visibility = View.VISIBLE
                 }
                 is MainViewState.Success -> {
-                    mainBinding.temperature = it.data.temp.toString() + "\u2070"
+                    mainBinding.temperature = it.data.temp.toString()  + getString(R.string.super_script_o)
                     mainBinding.adapter = MainAdapter(it.data.requiredForecastData)
-                    Log.d("Tag", it.data.requiredForecastData.toString())
+                    mainBinding.llMainLayout.visibility = View.VISIBLE
 
-//                    b.progress.visibility = View.GONE
-//                    mainAdapter.addItems(it.data)
                 }
                 is MainViewState.Error -> {
-//                    binding.progress.visibility = View.GONE
+                    mainBinding.llErrorLayout.visibility = View.VISIBLE
                 }
             }
         }

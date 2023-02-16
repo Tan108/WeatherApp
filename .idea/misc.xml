@@ -3,6 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable/ic_loader.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/rotate.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.15" />
         <entry key="app/src/main/res/layout/item_forecast.xml" value="0.161231884057971" />
       </map>

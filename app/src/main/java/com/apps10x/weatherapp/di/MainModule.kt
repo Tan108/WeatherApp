@@ -1,8 +1,9 @@
 package com.apps10x.weatherapp.di
 
+import com.apps10x.weatherapp.common.constant.AppConstant
 import com.apps10x.weatherapp.data.api.ApiService
 import com.apps10x.weatherapp.data.repository.MainRepository
-import com.apps10x.weatherapp.helper.MainHelper
+import com.apps10x.weatherapp.common.helper.MainHelper
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -17,7 +18,7 @@ object MainModule {
     @Provides
     fun provideApiService(): ApiService{
         return Retrofit.Builder()
-            .baseUrl("https://api.openweathermap.org/data/2.5/")
+            .baseUrl(AppConstant.BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
             .create(ApiService::class.java)

@@ -15,11 +15,10 @@
 
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
-        android:layout_marginHorizontal="16dp"
+        android:layout_height="80dp"
         android:orientation="vertical"
         android:background="@color/white"
-        android:weightSum="2"
-        android:layout_height="80dp">
+        android:weightSum="2">
 
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
@@ -33,10 +32,12 @@
                 android:layout_weight="1">
 
                 <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvDay"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/black"
-                    android:textSize="20sp"
+                    android:textColor="@color/color_2A2A2A"
+                    app:fontFamily="@font/roboto_regular"
+                    android:textSize="16sp"
                     tools:text="@{day}" />
 
             </androidx.appcompat.widget.LinearLayoutCompat>
@@ -50,19 +51,15 @@
                 <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/black"
-                    android:textSize="18sp"
+                    android:textColor="@color/color_2A2A2A"
+                    app:fontFamily="@font/roboto_regular"
+                    android:textSize="16sp"
                     tools:text="@{temperature}" />
 
             </androidx.appcompat.widget.LinearLayoutCompat>
 
         </androidx.appcompat.widget.LinearLayoutCompat>
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/black"/>
-
-
     </androidx.appcompat.widget.LinearLayoutCompat>
+
 </layout>

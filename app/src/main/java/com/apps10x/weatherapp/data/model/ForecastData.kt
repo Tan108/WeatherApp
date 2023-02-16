@@ -21,13 +21,6 @@ data class City (
     val sunset: Long
 )
 
-/*
-data class Coord (
-    val lat: Double,
-    val lon: Double
-)
-*/
-
 data class ListElement (
     val dt: Long,
     val main: MainClass,
@@ -41,10 +34,6 @@ data class ListElement (
     @SerializedName("dt_txt")
     val dtTxt: String
 )
-
-/*data class Clouds (
-    val all: Long
-)*/
 
 data class MainClass (
     val temp: Double,
@@ -72,36 +61,5 @@ data class MainClass (
     val tempKf: Double
 )
 
-/*data class Sys (
-    val pod: Pod
-)
 
-data class Weather (
-    val id: Long,
-    val main: MainEnum,
-    val description: Description,
-    val icon: String
-)
 
-data class Wind (
-    val speed: Double,
-    val deg: Long,
-    val gust: Double
-)*/
-
-enum class Pod(val value: String) {
-    D("d"),
-    N("n");
-}
-
-enum class Description(val value: String) {
-    BrokenClouds("broken clouds"),
-    ClearSky("clear sky"),
-    FewClouds("few clouds"),
-    ScatteredClouds("scattered clouds");
-}
-
-enum class MainEnum(val value: String) {
-    Clear("Clear"),
-    Clouds("Clouds");
-}

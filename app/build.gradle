@@ -24,6 +24,14 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+   /* testOptions {
+        animationsDisabled = true
+    }*/
+
+    /*  ext{
+          kotlin_version = '1.1.3-2'
+          compiler_version = '3.0.0-beta6'
+      }*/
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
@@ -33,6 +41,10 @@ android {
     }
     dataBinding{
         enabled = true
+    }
+    testOptions {
+        unitTests.includeAndroidResources = true
+        animationsDisabled = true
     }
 }
 
@@ -45,6 +57,7 @@ dependencies {
 
     // Dagger - Hilt
     implementation "com.google.dagger:hilt-android:2.39"
+    implementation 'androidx.test:monitor:1.4.0'
     kapt "com.google.dagger:hilt-android-compiler:2.39"
 
     // Retrofit
@@ -57,12 +70,37 @@ dependencies {
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.0'
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.0'
 
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.0"
+
     // Lifecycle
     def lifecycle_version = "2.5.1"
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
 
+//    testImplementation 'junit:junit:4.12'
+//    testImplementation "com.android.support.test:runner:1.0.2"
+//    androidTestImplementation 'androidx.test:runner:1.1.1'
+
+    androidTestImplementation 'com.android.support.test:rules:1.0.2'
+    androidTestImplementation 'com.android.support:support-annotations:28.0.0'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+
+
+    testImplementation 'com.squareup.okhttp3:mockwebserver:4.9.0'
+
+    androidTestImplementation 'androidx.test:core:1.5.0'
+    androidTestImplementation 'androidx.test:core-ktx:1.5.0'
+
+
+    androidTestImplementation 'androidx.test.ext:junit-ktx:1.1.5'
+
+
+//    kapt "com.android.databinding:compiler:3.1.4"
+//    kapt "androidx.databinding:databinding-compiler:7.0.4-alpha04"
+
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-contrib:3.5.1'
+
 }
