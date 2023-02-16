@@ -1,7 +1,5 @@
 package com.apps10x.weatherapp.data.model
 
-import android.os.Message
-import com.apps10x.weatherapp.di.MainModule
 import org.junit.Assert.*
 
 import org.junit.Test

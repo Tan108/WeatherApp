@@ -1,6 +1,5 @@
 package com.apps10x.weatherapp.data.api
 
-import com.apps10x.weatherapp.data.model.ForecastData
 import kotlinx.coroutines.test.runTest
 import okhttp3.mockwebserver.MockResponse
 import okhttp3.mockwebserver.MockWebServer

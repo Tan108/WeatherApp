@@ -30,8 +30,6 @@ class MainViewModel @Inject constructor(@ApplicationContext  val context: Contex
             state.value = MainViewState.Loading
             if (mainHelper.isOnline(context)){
                 try{
-                    Log.d("Tag ",Gson().toJson(mainRepository.getForecast()))
-                    Log.d("Tag2 ",Gson().toJson(mainHelper.handleForeCastData(mainRepository.getForecast())))
                     state.value = MainViewState.Success(data = RequiredData(
                         mainRepository.getWeather().main.temp,
                         mainHelper.handleForeCastData(mainRepository.getForecast())
